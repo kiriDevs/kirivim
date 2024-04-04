@@ -20,6 +20,7 @@ require("lazy").setup({
     {
         "lewis6991/gitsigns.nvim",
         config = function()
+            require("gitsigns").setup()
             vim.opt.signcolumn = "yes:1" -- Prevent bouncing on first gitsign
         end
     },
