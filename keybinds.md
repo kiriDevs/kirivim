@@ -1,7 +1,16 @@
 # kiriVim Keybinds
 
-This is an exhaustive list of all custom keybinds contained in this config
-(unless I forgot to update this list at some point).
+This file documents *all* changes kiriVim applies to `nvim`s default keymap
+(unless I forgot to update it at some point).
+
+
+- [Added Keybinds](#added-keybinds)
+- [Removed / NoOp-Overridden Keybinds](#removed---noop-overridden-keybinds)
+
+## Added Keybinds
+
+While kiriVim aims to keep the keymap close to default, it does add keybinds
+for many plugin actions, and a couple things I personally think are convenient.
 
 mode     | bind         | result
 -------- | ------------ | ----------------------------------------------------
@@ -19,3 +28,14 @@ cmp      | `<C-j>`      | Selects next completion item
 cmp      | `<C-l>`      | Confirms selectied completion item
 terminal | `<Esc>`      | `<C-\><C-n>` (exits TERMINAL mode)
 terminal | `<C-^>`      | Sends `<Esc>` to the terminal
+
+## Removed / NoOp-Overridden Keybinds
+
+These are all keybinds kiriVim either removes (`vim.keymap.del`), or overrides
+with a no-op (`function() end`) if they are built-in. The reason for this
+generally is that I, personally, find them to be annoying, i.e. because of
+common (or very "annoying to fix") accidental triggers.
+
+mode   | bind | reason
+------ | ---- | ---------------------------------------------------------------
+normal | `.`  | `de` keyboard: `:` = `shift` + `.`; I mistime `shift` sometimes
