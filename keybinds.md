@@ -29,6 +29,10 @@ cmp      | `<C-l>`      | Confirms selectied completion item
 terminal | `<Esc>`      | `<C-\><C-n>` (exits TERMINAL mode)
 terminal | `<C-^>`      | Sends `<Esc>` to the terminal
 
+> [!IMPORTANT]
+> Added keybinds can, obviously, imply that other keybinds have been "removed"
+> by overriding.
+
 ## Removed / NoOp-Overridden Keybinds
 
 These are all keybinds kiriVim either removes (`vim.keymap.del`), or overrides
