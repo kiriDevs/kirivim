@@ -2,8 +2,9 @@
 
 This is current Neovim configuration, written in lua, using lazy.nvim.
 
-**Note:** This is my first configuration written in Lua; you might notice this
-in code quality / style.
+> [!NOTE]
+> This is my first configuration written in Lua; you might notice this in code
+> quality / style.
 
 ## Key Points
 
