@@ -12,6 +12,9 @@ This file documents *all* changes kiriVim applies to `nvim`s default keymap
 While kiriVim aims to keep the keymap close to default, it does add keybinds
 for many plugin actions, and a couple things I personally think are convenient.
 
+> [!TIP]
+> kiriVim's default `<leader>` key is ` ` (space).
+
 mode     | bind         | result
 -------- | ------------ | ----------------------------------------------------
 normal   | `<leader>x`  | `:Ex` (opens `netrw` explorer)
