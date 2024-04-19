@@ -30,4 +30,5 @@ require("lazy").setup({
             vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
         end
     },
+    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" }
 })
