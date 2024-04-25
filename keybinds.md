@@ -19,6 +19,7 @@ mode     | bind         | result
 -------- | ------------ | ----------------------------------------------------
 normal   | `<leader>x`  | `:Ex` (opens `netrw` explorer)
 normal   | `<leader>q`  | `:q` (closes the current buffer)
+normal   | `<leader>Q`  | `:bdelete` (deletes the current buffer)
 normal   | `<leader>H`  | `:nohlsearch` (stops highlighting search results)
 normal   | `<leader>t`  | `:term` (opens a terminal buffer)
 normal   | `<leader>u`  | `:UndotreeToggle` (Toggles an undotree pane)

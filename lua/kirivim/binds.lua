@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>q", vim.cmd.quit)
+vim.keymap.set("n", "<leader>Q", vim.cmd.bdelete)
 
 vim.keymap.set("n", "<leader>H", vim.cmd.nohlsearch)
 
