@@ -7,6 +7,7 @@ return {
                 "html", "css", "javascript", "typescript", "tsx",
                 "java", "rust", "python",
                 "json", "toml", "yaml",
+                "tex", "typst",
             },
             auto_install = true,
             highlight = {
