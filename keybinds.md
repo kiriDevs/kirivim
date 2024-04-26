@@ -42,7 +42,7 @@ terminal | `<C-^>`      | Sends `<Esc>` to the terminal
 These are all keybinds kiriVim either removes (`vim.keymap.del`), or overrides
 with a no-op (`function() end`) if they are built-in. The reason for this
 generally is that I, personally, find them to be annoying, i.e. because of
-common (or very "annoying to fix") accidental triggers.
+common (or very "annoying to recover from") accidental triggers.
 
 mode   | bind | reason
 ------ | ---- | ---------------------------------------------------------------
