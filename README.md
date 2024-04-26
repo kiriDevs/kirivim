@@ -17,6 +17,12 @@ This is current Neovim configuration, written in lua, using lazy.nvim.
 
 *more [below](#also-included)*
 
+## Dependencies
+
+- [`ripgrep`](https://github.com/BurntSushi/ripgrep) for Telescope's live grep
+- [`tree-sitter` CLI](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md)
+  for some parsers kiriVim loads by default
+
 ## Notes
 
 Things that might become important when you try this for yourself:
