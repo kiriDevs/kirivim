@@ -48,6 +48,18 @@ return {
                         }
                     }
                 })
+            end,
+
+            ["rust_analyzer"] = function()
+                lsp["rust_analyzer"].setup({
+                    settings = {
+                        ["rust-analyzer"] = {
+                            check = {
+                                command = "clippy"
+                            }
+                        }
+                    }
+                })
             end
         })
 
