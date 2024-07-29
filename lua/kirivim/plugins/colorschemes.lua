@@ -12,7 +12,7 @@ return {
                     comments = { italic = false },
                     keywords = { italic = false },
                 },
-                day_brightness = 0.4,
+                day_brightness = 0.3,
             })
             vim.cmd.colorscheme("tokyonight-storm")
         end
