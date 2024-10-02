@@ -15,6 +15,7 @@ require("lazy").setup({
     { import = "kirivim.plugins.treesitter" },
     { import = "kirivim.plugins.lsp" },
     { import = "kirivim.plugins.completion" },
+    { import = "kirivim.plugins.syntax" },
     { import = "kirivim.plugins.telescope" },
 
     {
