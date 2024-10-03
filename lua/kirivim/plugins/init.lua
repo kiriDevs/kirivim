@@ -37,4 +37,10 @@ require("lazy").setup({
         cmd = "Glow",
         keys = { { "<leader>g", vim.cmd.Glow } }
     },
+    {
+        "IogaMaster/neocord",
+        keys = {
+            { "<leader>ds", function() require("neocord").setup() end }
+        }
+    },
 })
