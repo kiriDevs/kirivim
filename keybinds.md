@@ -27,15 +27,16 @@ normal   | `<leader>sf` | Opens Telescope to *s*earch for *f*iles
 normal   | `<leader>ss` | Opens Telescope's live-grep menu
 normal   | `<leader>sb` | Opens Telescope to *s*earch through *b*uffers
 normal   | `<leader>sh` | Opens Telescope to *s*earch through *h*elp
+normal   | `<leader>c+` | Enable GitHub Copilot
+normal   | `<leader>c-` | Disable GitHub Copilot
+normal   | `<leader>cs` | Print GitHub Copilot status
+normal   | `<leader>c!` | Re-Setup GitHub Copilot
+insert   | `<C-Return>` | Accept GitHub Copilot suggestion
 cmp      | `<C-k>`      | Selects previous completion item
 cmp      | `<C-j>`      | Selects next completion item
 cmp      | `<C-l>`      | Confirms selectied completion item
 terminal | `<Esc>`      | `<C-\><C-n>` (exits TERMINAL mode)
 terminal | `<C-^>`      | Sends `<Esc>` to the terminal
-
-> [!IMPORTANT]
-> Added keybinds can, obviously, imply that other keybinds have been "removed"
-> by overriding.
 
 ## Removed / NoOp-Overridden Keybinds
 
@@ -43,6 +44,10 @@ These are all keybinds kiriVim either removes (`vim.keymap.del`), or overrides
 with a no-op (`function() end`) if they are built-in. The reason for this
 generally is that I, personally, find them to be annoying, i.e. because of
 common (or very "annoying to recover from") accidental triggers.
+
+> [!IMPORTANT]
+> Added keybinds can imply that other keybinds have been overriden, resulting
+> in effective removal without being listed here.
 
 mode   | bind | reason
 ------ | ---- | ---------------------------------------------------------------

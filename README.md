@@ -12,7 +12,9 @@ This is current Neovim configuration, written in lua, using lazy.nvim.
 - **Colorscheme:** [`tokyonight` (Storm)](https://github.com/folke/tokyonight.nvim)
 - Syntax Highlighting with [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - LSP support with [`mason-lspsetup`](https://github.com/williamboman/mason-lspconfig.nvim)
-- Code Completion (including LSP) with [`nvim-cmp`](https://github.com/hrsh7th/nvim-cmp)
+- Automatic Code Completion
+  - LSP servers via [`nvim-cmp`](https://github.com/hrsh7th/nvim-cmp)
+  - GitHub Copilot via [`copilot.vim`](https://github.com/github/copilot.vim)
 - Minimal keybinds ([full list](/keybinds.md))
 
 *more [below](#also-included)*
