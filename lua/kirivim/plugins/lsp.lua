@@ -100,6 +100,7 @@ return {
                 })
             end
         })
+        lsp.gdscript.setup({ capabilities = capabilities })
     end,
     opts = function()
         vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
