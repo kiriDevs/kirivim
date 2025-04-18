@@ -103,6 +103,7 @@ return {
         lsp.gdscript.setup({ capabilities = capabilities })
     end,
     opts = function()
+        vim.diagnostic.config({ virtual_text = true })
         vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
     end,
 }
