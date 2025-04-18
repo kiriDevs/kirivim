@@ -71,13 +71,12 @@ return {
         local lsp = require("lspconfig")
         require("mason-lspconfig").setup_handlers({
             function(server_name)
-                lsp[server_name].setup({
-                    capabilities = capabilities
-                })
+                lsp[server_name].setup({ capabilities = capabilities })
             end,
 
             ["lua_ls"] = function()
                 lsp.lua_ls.setup({
+                    capabilities = capabilities,
                     settings = {
                         Lua = {
                             diagnostics = {
@@ -90,6 +89,7 @@ return {
 
             ["rust_analyzer"] = function()
                 lsp["rust_analyzer"].setup({
+                    capabilities = capabilities,
                     settings = {
                         ["rust-analyzer"] = {
                             check = {
