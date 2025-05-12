@@ -1,5 +1,5 @@
 -- Language Servers to always install
-local install_list = {
+local install_servers = {
     "lua_ls", "bashls",
     "html", "ts_ls" --[[ TypeScript ]],
     "jsonls", "taplo" --[[ TOML ]], "yamlls",
@@ -11,7 +11,7 @@ local dependant_servers = {
     jdtls = "java",
     pylsp = "python",
     rust_analyzer = { "rustc", "cargo" },
-    ["nil_ls"] = "nix",
+    nil_ls = "nix",
     tinymist = "typst",
     texlab = "latex",
 }
@@ -28,82 +28,59 @@ end
 local function request_installation(subject)
     if type(subject) == "table" then
         for _, entry in pairs(subject) do request_installation(entry) end
-    else table.insert(install_list, subject) end
+    else table.insert(install_servers, subject) end
 end
 for server_name, dependencies in pairs(dependant_servers) do
     if dependencies_met(dependencies) then request_installation(server_name) end
 end
 
+local customLsConfigs = {
+    lua_ls = {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        settings = { Lua = {
+            ["diagnostics.globals"] = { "vim" },
+        }},
+    },
+    rust_analyzer = {
+        cmd = { "rust-analyzer" },
+        settings = { rust_analyzer = {
+            ["check.command"] = "clippy",
+        }},
+    }
+    -- TODO: gdscript?
+}
+
 return {
-    "neovim/nvim-lspconfig",
+    "williamboman/mason-lspconfig.nvim",
     dependencies = {
         {
-            "williamboman/mason-lspconfig.nvim",
-            dependencies = {
-                {
-                    "williamboman/mason.nvim",
-                    config = function()
-                        require("mason").setup({})
-                    end
-                }
+            "neovim/nvim-lspconfig",
+            {
+                "williamboman/mason.nvim",
+                config = function() require("mason").setup({}) end
             },
-            config = function()
-                require("mason-lspconfig").setup({
-                    ensure_installed = install_list,
-                })
-            end
         },
-        {
-            "hrsh7th/cmp-nvim-lsp",
-            dependencies = { "hrsh7th/nvim-cmp" },
-        }
     },
     config = function()
-        local _capabilities = {
-            vim.lsp.protocol.make_client_capabilities(),
-            require("cmp_nvim_lsp").default_capabilities()
-        }
-        local capabilities = {}
-        for _, partCapabilities in ipairs(_capabilities) do
-            capabilities = vim.tbl_deep_extend("force", capabilities, partCapabilities)
-        end
-
-        local lsp = require("lspconfig")
-        require("mason-lspconfig").setup_handlers({
-            function(server_name)
-                lsp[server_name].setup({ capabilities = capabilities })
-            end,
-
-            ["lua_ls"] = function()
-                lsp.lua_ls.setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" }
-                            }
-                        }
-                    }
-                })
-            end,
-
-            ["rust_analyzer"] = function()
-                lsp["rust_analyzer"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        ["rust-analyzer"] = {
-                            check = {
-                                command = "clippy"
-                            }
-                        }
-                    }
-                })
+        local preSetupLs = {}
+        for lsname, lsconfig in pairs(customLsConfigs) do
+            vim.lsp.config(lsname, lsconfig)
+            if lsname ~= "*" then
+                vim.lsp.enable(lsname)
+                table.insert(preSetupLs, lsname)
             end
-        })
-        lsp.gdscript.setup({ capabilities = capabilities })
+        end
+        require("mason-lspconfig").setup {
+            ensure_installed = install_servers,
+            automatic_enable = { exclude = preSetupLs }
+        }
     end,
     opts = function()
-        vim.diagnostic.config({ virtual_text = true })
         vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
+
+        vim.diagnostic.config({
+            virtual_lines = { current_line = true }
+        })
     end,
 }

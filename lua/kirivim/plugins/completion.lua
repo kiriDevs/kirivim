@@ -1,3 +1,11 @@
+local function enableCompletion(lspAttachEvent)
+    local client = vim.lsp.get_client_by_id(lspAttachEvent.data.client_id)
+    vim.lsp.completion.enable(
+        true, client.id, lspAttachEvent.buf,
+        { autotrigger = true, severity_sort = true, }
+    )
+end
+
 return {
     {
         "github/copilot.vim",
@@ -20,12 +28,11 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             {
                 "saadparwaiz1/cmp_luasnip",
-                dependencies = {
-                    "L3MON4D3/LuaSnip"
-                }
+                dependencies = { "L3MON4D3/LuaSnip" }
             }
         },
         config = function()
@@ -39,7 +46,7 @@ return {
                 },
                 sources = {
                     { name = "nvim_lsp" },
-                    { name = "luasnip" }
+                    { name = "luasnip", keyword_length = 4 }
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-k>"] = cmp.mapping.select_prev_item(cmpSelect),
@@ -53,6 +60,11 @@ return {
                     { name = "buffer" }
                 }
             })
+
+            vim.api.nvim_create_autocmd("LspAttach", { callback = enableCompletion })
+        end,
+        opts = function ()
+            vim.opt.completeopt = "menu,noselect"
         end
     }
 }
