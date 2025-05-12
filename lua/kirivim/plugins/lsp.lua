@@ -75,9 +75,14 @@ return {
             ensure_installed = install_servers,
             automatic_enable = { exclude = preSetupLs }
         }
+
+        vim.api.nvim_create_autocmd({ "LspAttach" }, {
+            callback = function ()
+                vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
+            end
+        })
     end,
     opts = function()
-        vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
 
         vim.diagnostic.config({
             virtual_lines = { current_line = true }
