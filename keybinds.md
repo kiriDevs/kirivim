@@ -51,4 +51,4 @@ common (or very "annoying to recover from") accidental triggers.
 
 mode   | bind | reason
 ------ | ---- | ---------------------------------------------------------------
-normal | `.`  | `de` keyboard: `:` = `shift` + `.`; I mistime `shift` sometimes
+normal | `.`  | `:` is shift+`.` on `de` keyboards, so I trigger `.` by accident
