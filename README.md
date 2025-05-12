@@ -45,6 +45,6 @@ to the [key points](#key-points).
 
 ## Thanks
 
-This configuration is heavily based on the setup(s) shown by ThePrimeagen in
-[his "0 to LSP" video](https://youtu.be/watch?v=w7i4amO_zaE), as well as
-[his current configuration on GitHub](https://github.com/ThePrimeagen/neovimrc).
+While a bunch of things have changed in the meantime, the original form of this
+configuration was heavily based on
+[@ThePrimeagen's configuration as of commit `f715b0`](https://github.com/ThePrimeagen/neovimrc/tree/f715b041310f89b11e68884c605b2b5d7a3f162b).
