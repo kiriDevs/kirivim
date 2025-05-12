@@ -77,10 +77,10 @@ return {
         }
     end,
     opts = function()
-        vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
+        vim.opt.signcolumn = "number"
 
         vim.diagnostic.config({
-            virtual_lines = { current_line = true }
+            virtual_lines = { current_line = true },
         })
     end,
 }
