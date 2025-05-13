@@ -46,7 +46,7 @@ return {
                 },
                 sources = {
                     { name = "nvim_lsp" },
-                    { name = "luasnip", keyword_length = 4 }
+                    { name = "luasnip" }
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-k>"] = cmp.mapping.select_prev_item(cmpSelect),
@@ -64,7 +64,7 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", { callback = enableCompletion })
         end,
         opts = function ()
-            vim.opt.completeopt = "menu,noselect"
-        end
+            vim.opt.completeopt = "menu,menuone,noselect"
+        end,
     }
 }
