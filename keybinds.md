@@ -54,3 +54,5 @@ mode   | bind     | reason
 ------ | -------- | ------------------------------------------------------------
 normal | `.`      | `:` is shift+`.` on `de` keyboards; sometimes my `shift` timing is slightly off, resulting in a `.` trigger when I just wanted `:`.
 insert | `<C-@>`  | `<C-Space>` is interpreted in the same way as `<C-@>`, resulting in `<C-@>` (re-insert last inserted text). Can happen when releasing `CTRL` too late after applying a `nvim-cmp` suggestion with `<C-l>`.
+
+<!-- vim: set colorcolumn=100 nowrap : -->
