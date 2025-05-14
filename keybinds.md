@@ -16,7 +16,7 @@ for many plugin actions, and a couple things I personally think are convenient.
 > kiriVim's default `<leader>` key is ` ` (space).
 
 mode     | bind              | result
--------- | ----------------- | ----------------------------------------------------
+-------- | ----------------- | -------------------------------------------------
 normal   | `<leader>x`       | `:Ex` (opens `netrw` explorer)
 normal   | `<leader>q`       | `:q` (closes the current buffer)
 normal   | `<leader>Q`       | `:bdelete` (deletes the current buffer)
@@ -50,6 +50,7 @@ common (or very "annoying to recover from") accidental triggers.
 > Added keybinds can imply that other keybinds have been overriden, resulting
 > in effective removal without being listed here.
 
-mode   | bind | reason
------- | ---- | ---------------------------------------------------------------
-normal | `.`  | `:` is shift+`.` on `de` keyboards, so I trigger `.` by accident
+mode   | bind     | reason
+------ | -------- | ------------------------------------------------------------
+normal | `.`      | `:` is shift+`.` on `de` keyboards; sometimes my `shift` timing is slightly off, resulting in a `.` trigger when I just wanted `:`.
+insert | `<C-@>`  | `<C-Space>` is interpreted in the same way as `<C-@>`, resulting in `<C-@>` (re-insert last inserted text). Can happen when releasing `CTRL` too late after applying a `nvim-cmp` suggestion with `<C-l>`.

@@ -13,3 +13,4 @@ vim.keymap.set("t", "<C-^>", "<Esc>") -- Be able to send ESC for interactivity
 -- Unbind / Override undesired default binds
 local nop = function() end
 vim.keymap.set("n", ".", nop)
+vim.keymap.set("i", "<C-@>", nop) -- <C-@> = <C-Space> = re-insert
