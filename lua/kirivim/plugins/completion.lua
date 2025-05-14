@@ -1,3 +1,4 @@
+--[[ DISABLED: Vanilla neovim completion; replaced by nvim-cmp
 local function enableCompletion(lspAttachEvent)
     local client = vim.lsp.get_client_by_id(lspAttachEvent.data.client_id)
     vim.lsp.completion.enable(
@@ -5,6 +6,7 @@ local function enableCompletion(lspAttachEvent)
         { autotrigger = true, severity_sort = true, }
     )
 end
+]]--
 
 return {
     {
@@ -61,7 +63,8 @@ return {
                 }
             })
 
-            vim.api.nvim_create_autocmd("LspAttach", { callback = enableCompletion })
+            -- DISABLED: See definition of enableCompletion (above)
+            -- vim.api.nvim_create_autocmd("LspAttach", { callback = enableCompletion })
         end,
         opts = function ()
             vim.opt.completeopt = "menu,menuone,noselect"

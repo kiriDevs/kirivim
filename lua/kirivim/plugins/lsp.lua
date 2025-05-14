@@ -14,6 +14,7 @@ local dependant_servers = {
     nil_ls = "nix",
     tinymist = "typst",
     texlab = "latex",
+    kotlin_language_server = { "kotlin" },
 }
 
 -- Add applicable dependant servers to install_list
