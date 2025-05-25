@@ -32,6 +32,7 @@ normal   | `<leader>c+`      | Enable GitHub Copilot
 normal   | `<leader>c-`      | Disable GitHub Copilot
 normal   | `<leader>cs`      | Print GitHub Copilot status
 normal   | `<leader>c!`      | Re-Setup GitHub Copilot
+normal   | `<leader>dg`      | Display diagnostics float(ing window)
 insert   | `<C-Return>`      | Accept GitHub Copilot suggestion
 cmp      | `<C-k>`           | Selects previous completion item
 cmp      | `<C-j>`           | Selects next completion item

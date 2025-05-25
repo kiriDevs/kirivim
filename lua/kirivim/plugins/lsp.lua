@@ -81,9 +81,13 @@ return {
         })
     end,
     opts = function()
-
         vim.diagnostic.config({
-            virtual_lines = { current_line = true }
+            virtual_lines = { current_line = true },
+            float = true,
         })
     end,
+    keys = {
+        { "<leader>dg", vim.diagnostic.open_float }
+    },
+    lazy = false
 }
