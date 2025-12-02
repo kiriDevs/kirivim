@@ -74,9 +74,14 @@ return {
             automatic_enable = { exclude = preSetupLs }
         }
 
+        -- Increase signcolumn when LSP attaches to buffer
         vim.api.nvim_create_autocmd({ "LspAttach" }, {
-            callback = function ()
-                vim.opt.signcolumn = "yes:3" -- Wide signcolumn for LSP errors
+            callback = function(event)
+                for _, checkWin in pairs(vim.api.nvim_list_wins()) do
+                    if (vim.api.nvim_win_get_buf(checkWin) == event.buf) then
+                        vim.api.nvim_set_option_value("signcolumn", "yes:3", { win = checkWin })
+                    end
+                end
             end
         })
     end,
