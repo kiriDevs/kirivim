@@ -55,10 +55,9 @@ local customLsConfigs = {
 return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
-        {
-            "neovim/nvim-lspconfig",
-            { "williamboman/mason.nvim", config = true },
-        },
+        { "kiriDevs/signcolumn.nvim", config = true },
+        "neovim/nvim-lspconfig",
+        { "williamboman/mason.nvim", config = true },
     },
     config = function()
         local preSetupLs = {}
@@ -75,15 +74,13 @@ return {
         }
 
         -- Increase signcolumn when LSP attaches to buffer
+        local sc = require("signcolumn")
         vim.api.nvim_create_autocmd({ "LspAttach" }, {
-            callback = function(event)
-                for _, checkWin in pairs(vim.api.nvim_list_wins()) do
-                    if (vim.api.nvim_win_get_buf(checkWin) == event.buf) then
-                        vim.api.nvim_set_option_value("signcolumn", "yes:3", { win = checkWin })
-                    end
-                end
-            end
-        })
+            callback = function(event) sc.ClaimBuf(event.buf, "lsp", 2); end,
+        });
+        vim.api.nvim_create_autocmd({ "LspDetach" }, {
+            callback = function(event) sc.ReleaseBuf(event.buf, "lsp"); end,
+        });
     end,
     opts = function()
         vim.diagnostic.config({
