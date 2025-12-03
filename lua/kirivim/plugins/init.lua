@@ -10,6 +10,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { "folke/lazy.nvim" },
+    { import = "kirivim.plugins.dev" },
     { import = "kirivim.plugins.colorschemes" },
 
     { import = "kirivim.plugins.treesitter" },
@@ -54,4 +55,6 @@ require("lazy").setup({
             { "<leader>ds", function() require("neocord").setup() end }
         }
     },
+}, {
+    dev = { path = "~/src/kiriDevs/", },
 })
