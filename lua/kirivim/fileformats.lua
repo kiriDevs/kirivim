@@ -17,7 +17,7 @@ local create_filetype = function(patterns, filetype, side_effect)
 end
 
 create_filetype({ "*.typ" }, "typst")
-create_filetype({ "bun.lock" }, "json5") -- Not ideal (trailing commas); close enough?
+create_filetype({ "bun.lock" }, "json5")
 create_filetype({ "*.hypr" }, "hyprlang", function()
     vim.opt.wrap = false
 end)
