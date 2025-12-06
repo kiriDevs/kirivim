@@ -74,7 +74,8 @@ return {
         }
 
         -- Increase signcolumn when LSP attaches to buffer
-        local sc = require("signcolumn")
+        local sc_exists, sc = pcall(require, "signcolumn");
+        if not sc_exists then return; end;
         vim.api.nvim_create_autocmd({ "LspAttach" }, {
             callback = function(event) sc.ClaimBuf(event.buf, "lsp", 2); end,
         });
