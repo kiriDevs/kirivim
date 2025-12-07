@@ -1,3 +1,4 @@
+require("kirivim.commands")
 require("kirivim.fileformats")
 require("kirivim.binds")
 require("kirivim.options")
